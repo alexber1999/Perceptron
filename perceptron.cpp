@@ -52,4 +52,7 @@ void Perceptron::train(double* inputs, int target){
     }
 }
 
+bool Perceptron::isPerceptronCorrect(int guessNumber, int target){
+    return guess == target;
+}
 

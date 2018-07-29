@@ -1,4 +1,4 @@
-
+#include "Point.h"
 #include "Perceptron.h"
 
 int main(){

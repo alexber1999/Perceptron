@@ -28,11 +28,20 @@ Perceptron::~Perceptron(){
 }
 
 int Perceptron::activate(double sum){
-    
+    if(sum >= 0){
+        return 1;
+    } else {
+        return -1;
+    }
 }
 
-int Perceptron::guess(double* numInputs, double* weights){
+int Perceptron::guess(double* inputs, double* weights){
+    int sum = 0;
+    for(int i = 0; i < this -> numInputs; i++){
+        sum += inputs[i] * weights[i];
+    }
     
+    return activate(sum);
 }
 
 

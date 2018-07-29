@@ -11,3 +11,15 @@ Point::Point(){
         label = -1;
     }
 }
+
+int Point::getX(){
+    return x;
+}
+
+int Point::getY(){
+    return y;
+}
+
+int Point::getLabel(){
+    return label;
+}

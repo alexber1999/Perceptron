@@ -9,6 +9,9 @@ class Point{
     
     public:
         Point();
+        int getX();
+        int getY();
+        int getLabel();
     
     
 };

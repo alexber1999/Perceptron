@@ -38,7 +38,6 @@ int Perceptron::guess(double* inputs){
     for(int i = 0; i < this -> numInputs; i++){
         sum += inputs[i] * weights[i];
     }
-    std::cout << activate(sum) << std::endl;
     return activate(sum);
 }
 

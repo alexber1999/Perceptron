@@ -13,7 +13,14 @@ int main(){
     int numCorrectGuesses = 0;
     for(int i = 0; i < numPoints; i++){
         double inputs [] = {points[i].getX(), points[i].getY()};
+        std::cout << "X: " << points[i].getX() << " , ";
+        std::cout << "Y: " << points[i].getY() << std::endl;
         int guessNumber = p.guess(inputs);
+        if(guessNumber == 1){
+            std::cout << "Guess: Above" << std::endl;
+        } else if(guessNumber == -1){
+            std::cout << "Guess: Below" << std::endl;
+        }
         int label = points[i].getLabel();
         if(p.isPerceptronCorrect(guessNumber, label)){
             numCorrectGuesses++;
@@ -31,7 +38,14 @@ int main(){
     
     for(int i = 0; i < numPoints; i++){
         double inputs [] = {points[i].getX(), points[i].getY()};
+        std::cout << "X: " << points[i].getX() << " , ";
+        std::cout << "Y: " << points[i].getY() << std::endl;
         int guessNumber = p.guess(inputs);
+        if(guessNumber == 1){
+            std::cout << "Guess: Above" << std::endl;
+        } else if(guessNumber == -1){
+            std::cout << "Guess: Below" << std::endl;
+        }
         int label = points[i].getLabel();
         if(p.isPerceptronCorrect(guessNumber, label)){
             numCorrectGuessesAfterTraining++;

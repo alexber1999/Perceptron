@@ -38,13 +38,15 @@ int Perceptron::guess(double* inputs){
     for(int i = 0; i < this -> numInputs; i++){
         sum += inputs[i] * weights[i];
     }
-    
+    std::cout << activate(sum) << std::endl;
     return activate(sum);
 }
 
 void Perceptron::train(double* inputs, int target){
     int guessNumber = guess(inputs);
+    std::cout << "Guess Number" << guessNumber << std::endl;
     int error = target - guessNumber;
+    std::cout << "Error: " << error << std::endl;
     for(int i = 0; i < numInputs; i++){
         weights[i] += error * inputs[i] * learningRate;
     }

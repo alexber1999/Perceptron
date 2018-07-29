@@ -1,6 +1,7 @@
 #ifndef Perceptron_H
 #define Perceptron_H
 #include <iostream>
+#include <stdlib.h>
 class Perceptron{
     private:
     

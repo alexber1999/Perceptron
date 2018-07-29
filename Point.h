@@ -1,6 +1,7 @@
 #ifndef Point_H
 #define Point_H
 #include <stdlib.h>
+#include <iostream>
 class Point{
     private:
         double x;

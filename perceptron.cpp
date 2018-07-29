@@ -6,7 +6,7 @@ Perceptron::Perceptron(){
     learningRate = 0.1;
     
     for(int i = 0; i < numInputs; i++){
-        weights[i] = 0;
+        weights[i] = (double) rand() / (RAND_MAX);
     }
     
 }
@@ -44,15 +44,13 @@ int Perceptron::guess(double* inputs){
 
 void Perceptron::train(double* inputs, int target){
     int guessNumber = guess(inputs);
-    std::cout << "Guess Number" << guessNumber << std::endl;
     int error = target - guessNumber;
-    std::cout << "Error: " << error << std::endl;
     for(int i = 0; i < numInputs; i++){
         weights[i] += error * inputs[i] * learningRate;
     }
 }
 
 bool Perceptron::isPerceptronCorrect(int guessNumber, int target){
-    return guess == target;
+    return guessNumber == target;
 }
 

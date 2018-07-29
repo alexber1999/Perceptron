@@ -23,6 +23,25 @@ int main(){
     std::cout << "Number of incorrect guesses before training: " << numPoints - numCorrectGuesses << std::endl;
     //then, we need to train the perceptron: output the number of correct and incorrect guesses
     
+    int numCorrectGuessesAfterTraining = 0;
+    for(int i = 0; i < numPoints; i++){
+        double inputs [] = {points[i].getX(), points[i].getY()};
+        p.train(inputs, points[i].getLabel());
+    }
+    
+    for(int i = 0; i < numPoints; i++){
+        double inputs [] = {points[i].getX(), points[i].getY()};
+        int guessNumber = p.guess(inputs);
+        int label = points[i].getLabel();
+        if(p.isPerceptronCorrect(guessNumber, label)){
+            numCorrectGuessesAfterTraining++;
+        }
+    }
+    
+    std:: cout << "Number of correct guesses after training: " << numCorrectGuessesAfterTraining << std::endl;
+    std::cout << "Number of incorrect guesses after training: " << numPoints - numCorrectGuessesAfterTraining << std::endl;
+    
+    
     delete [] points;
     return 0;
 }

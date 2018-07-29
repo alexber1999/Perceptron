@@ -1,9 +1,9 @@
 #include "Perceptron.h"
 
 Perceptron::Perceptron(){
-    inputs = new double[2];
     weights = new double[2];
     numInputs = 2;
+    learningRate = 0.1;
     
     for(int i = 0; i < numInputs; i++){
         weights[i] = 0;
@@ -13,17 +13,15 @@ Perceptron::Perceptron(){
 
 
 Perceptron::Perceptron(int numInputs){
-    inputs = new double[numInputs];
     weights = new double[numInputs];
     this -> numInputs = numInputs;
-    
+    learningRate = 0.1;
     for(int i = 0; i < this -> numInputs; i++){
         weights[i] = 0;
     }
 }
 
 Perceptron::~Perceptron(){
-    delete [] inputs;
     delete [] weights;
 }
 
@@ -35,13 +33,21 @@ int Perceptron::activate(double sum){
     }
 }
 
-int Perceptron::guess(double* inputs, double* weights){
+int Perceptron::guess(double* inputs){
     int sum = 0;
     for(int i = 0; i < this -> numInputs; i++){
         sum += inputs[i] * weights[i];
     }
     
     return activate(sum);
+}
+
+void Perceptron::train(double* inputs, int target){
+    int guessNumber = guess(inputs);
+    int error = target - guessNumber;
+    for(int i = 0; i < numInputs; i++){
+        weights[i] += error * inputs[i] * learningRate;
+    }
 }
 
 
